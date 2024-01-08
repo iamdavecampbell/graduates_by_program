@@ -47,16 +47,16 @@ Macleans_medical = c("McGill",
 # Pull CanSim table from StatCan or load them if they already exist:
   
 
-cache_file_list = list.files("/Users/iamdavecampbell/Dropbox/Carleton STAT Diversity project/Resources/women in stats/cansim_cache/")
+cache_file_list = list.files()
 
 if(length(grep(cache_file_list, pattern = "37-10-0235-01", value = TRUE))==0){
   data     = get_cansim(              "37-10-0235-01") |> rename_all(make.names) 
   metadata = get_cansim_cube_metadata("37-10-0235-01") |> rename_all(make.names) 
-  data     |> write_csv(paste0("cansim_cache/","37-10-0235-01","_data.csv"))
-  metadata |> write_csv(paste0("cansim_cache/","37-10-0235-01","_metadata.csv"))
+  data     |> write_csv(paste0("37-10-0235-01","_data.csv"))
+  metadata |> write_csv(paste0("37-10-0235-01","_metadata.csv"))
 }else{
-  data     = read_csv(paste0("/Users/iamdavecampbell/Dropbox/Carleton STAT Diversity project/Resources/women in stats/cansim_cache/","37-10-0235-01","_data.csv"))
-  metadata = read_csv(paste0("/Users/iamdavecampbell/Dropbox/Carleton STAT Diversity project/Resources/women in stats/cansim_cache/","37-10-0235-01","_metadata.csv"))
+  data     = read_csv(paste0("37-10-0235-01","_data.csv"))
+  metadata = read_csv(paste0("37-10-0235-01","_metadata.csv"))
 }
 location = "Grad_shiny/Grads_by_program/"
 data |> dim() 
