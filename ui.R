@@ -61,19 +61,31 @@ fluidPage(
         # Show a plot of the generated distribution
         mainPanel(
             h2("Postsecondary graduates, by detailed field of study, institution, and program and student characteristics"),
-            p("From Cansim table: 37-10-0235"),
-            h4("Instructions:"),
-            p("Subjects are hierarchical, select a top level ",strong("Program of interest"),"to plot all subgroups. Choose a baseline university to highlight using the dropdown menu ", 
-              strong("Baseline University for Comparison (black line)"),".  If the ", strong("Values to plot"), " are percentages of the 2012, consider using the ", 
-              strong("Show National (red line)"),
-              " to include the change in the national value.  But skip this if showing the counts of graduates since the national count of graduates is always really big compared to the individual universities.",
-              "  To focus in on what is reported by the baseline university, use the button ", strong("Show only programs reported by the baseline university"),"."),
-              p("Variability is really high when a school has few graduates.  Consider removing the smaller departments by adjusting the threshold slider in ",
-                strong("Plot Universities with at least this number of graduates in 2012"),
-                ". The legend shows the school names, but names use a 'rule based' truncation that may produce artifacts, one notable example is that Université Laval is 'Univ al'."),
-
-            plotOutput("distPlot", width = "100%")
-
+            h4("From Cansim table: 37-10-0235"),
+            tabsetPanel(type = "tabs",
+                        tabPanel("Graduates Per Program",
+                                 h4("Instructions:"),
+                                 p("Subjects are hierarchical, select a top level ",strong("Program of interest"),"to plot all subgroups. Choose a baseline university to highlight using the dropdown menu ", 
+                                   strong("Baseline University for Comparison (black line)"),".  If the ", strong("Values to plot"), " are percentages of the 2012, consider using the ", 
+                                   strong("Show National (red line)"),
+                                   " to include the change in the national value.  But skip this if showing the counts of graduates since the national count of graduates is always really big compared to the individual universities.",
+                                   "  To focus in on what is reported by the baseline university, use the button ", strong("Show only programs reported by the baseline university"),"."),
+                                 p("Variability is really high when a school has few graduates.  Consider removing the smaller departments by adjusting the threshold slider in ",
+                                   strong("Plot Universities with at least this number of graduates in 2012"),
+                                   ". The legend shows the school names, but names use a 'rule based' truncation that may produce artifacts, one notable example is that Université Laval is 'Univ al'."),
+                                 
+                                 plotOutput("distPlot", width = "100%")
+                                 
+                                 ),
+                        tabPanel("Notes about the data", 
+                                 p("Stat Can gathers the data using the Postsecondary Student Information System (PSIS) including information about changes of programs, completion rates, etc... from every institution."),
+                                 HTML("Values are randomized by <a href='https://www.statcan.gc.ca/en/statistical-programs/instrument/5017_Q1_V8' target='_blank'>Stat Can</a><br>"),
+                                 em("' All counts are randomly rounded to a multiple of 3 using the following procedure: counts which are already a multiple of 3 are not adjusted; counts one greater than a multiple of 3 are adjusted to the next lowest multiple of 3 with a probability of two-thirds and to the next highest multiple of 3 with a probability of one-third. The probabilities are reversed for counts that are one less than a multiple of 3.'"),
+                                 p("Note that only a student’s major is reported.  They don’t seem to track minors.  It isn’t clear how double majors are counted.  It’s probably just a pick one solution. "),
+                                 p("Data Science may be hidden because it may be run through Statistics and/or Comp Sci departments (or others), so it will likely be listed by the home department.")
+                        )
+            )
+            
         )
     )
 )
