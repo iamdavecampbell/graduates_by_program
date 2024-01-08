@@ -14,10 +14,10 @@ library(GGally)
 library(ggpubr)
 library(lubridate)
 
-undergrad_data             <- read_csv("undergrad_programs_data.csv")
-metadata                   <- read_csv("undergrad_programs_metadata.csv")
-program_codes_top          <- read.csv("top_program_codes.csv")
-program_codes_sub          <- read.csv("sub_program_codes.csv")
+undergrad_data             <- read_csv("filecache/undergrad_programs_data.csv")
+metadata                   <- read_csv("filecache/undergrad_programs_metadata.csv")
+program_codes_top          <- read.csv("filecache/top_program_codes.csv")
+program_codes_sub          <- read.csv("filecache/sub_program_codes.csv")
 
 
 function(input, output, session) {

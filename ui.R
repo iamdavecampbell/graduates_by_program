@@ -13,11 +13,11 @@ library(cansim)
 library(GGally)
 library(ggpubr)
 library(lubridate)
-doctoral_universities      <- read.csv("doctoral_list.csv")[,2]
-comprehensive_universities <- read.csv("comprehensive_list.csv")[,2]
-program_codes_top          <- read.csv("top_program_codes.csv")
+doctoral_universities      <- read.csv("filecache/doctoral_list.csv")[,2]
+comprehensive_universities <- read.csv("filecache/comprehensive_list.csv")[,2]
+program_codes_top          <- read.csv("filecache/top_program_codes.csv")
 
-
+# for testing:
 # input = list()
 # input$program = "Mathematics and statistics [27]"
 # input$baselineuni = "Carleton University, Ontario"
@@ -71,14 +71,9 @@ fluidPage(
               p("Variability is really high when a school has few graduates.  Consider removing the smaller departments by adjusting the threshold slider in ",
                 strong("Plot Universities with at least this number of graduates in 2012"),
                 ". The legend shows the school names, but names use a 'rule based' truncation that may produce artifacts, one notable example is that Université Laval is 'Univ al'."),
-            # p("this",verbatimTextOutput("nplotsX1000")),
-            plotOutput("distPlot", 
-                       # height =
-            # gsub(verbatimTextOutput(output$nplotsX1000()), 
-            #      pattern = '(^.*\\[1\\]\\s(&quot);)|(&quot.*$)', replacement = ""),
-                 width = "100%")
-            # plotOutput("distPlot", height = paste0(input$plotsize,"px"), width = "100%")
-            # plotOutput("distPlot", height = "1000px", width = "100%")
+
+            plotOutput("distPlot", width = "100%")
+
         )
     )
 )
