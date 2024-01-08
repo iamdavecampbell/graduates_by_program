@@ -9,7 +9,6 @@
 
 library(shiny)
 library(tidyverse)
-library(cansim)
 library(GGally)
 library(ggpubr)
 library(lubridate)
