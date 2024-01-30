@@ -57,6 +57,11 @@ fluidPage(
                 min = 0,
                 max = 30,
                 value = 10),
+    p(strong("If you see an error instead of a plot"),
+      ", move the slider to the left.  The ", 
+      strong("Baseline University"),
+      " had few graduates in 2012.")
+    
     ),
     
         # Show a plot of the generated distribution
