@@ -23,6 +23,7 @@ program_codes_top          <- read.csv("filecache/top_program_codes.csv")
 # input$minvalue2012 = 4
 # input$onlyblacklineplots = TRUE
 # input$relative = FALSE
+# input$shownational = TRUE
 
 # Define UI for application that draws a histogram
 fluidPage(
@@ -32,6 +33,7 @@ fluidPage(
     # Sidebar with a slider input for number of bins
     sidebarLayout(
         sidebarPanel(
+            HTML("View the code on <a href='https://github.com/iamdavecampbell/graduates_by_program/tree/main' target = '_blank'>Github</a><br><br>"),
             selectInput("program",
                         "Program of interest:",
                         choices = program_codes_top, 
@@ -54,12 +56,12 @@ fluidPage(
                 "Plot Universities with at least this number of graduates in 2012",
                 min = 0,
                 max = 30,
-                value = 10)
+                value = 10),
     ),
     
         # Show a plot of the generated distribution
         mainPanel(
-            h2("Postsecondary graduates, by detailed field of study, institution, and program and student characteristics"),
+            h2("Postsecondary graduates (baccalaureate), by detailed field of study, institution, and program and student characteristics"),
             h4("From Cansim table: 37-10-0235"),
             tabsetPanel(type = "tabs",
                         tabPanel("Graduates Per Program",
@@ -72,9 +74,7 @@ fluidPage(
                                  p("Variability is really high when a school has few graduates.  Consider removing the smaller departments by adjusting the threshold slider in ",
                                    strong("Plot Universities with at least this number of graduates in 2012"),
                                    ". The legend shows the school names, but names use a 'rule based' truncation that may produce artifacts, one notable example is that Université Laval is 'Univ al'."),
-                                 
                                  plotOutput("distPlot", width = "100%")
-                                 
                                  ),
                         tabPanel("Notes about the data", 
                                  p("Stat Can gathers the data using the Postsecondary Student Information System (PSIS) including information about changes of programs, completion rates, etc... from every institution."),
