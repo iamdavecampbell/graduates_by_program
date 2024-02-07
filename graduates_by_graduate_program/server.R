@@ -119,6 +119,7 @@ function(input, output, session) {
                     # school to highlight:
                     geom_line(data = Baseline_uni(),
                               aes(x = Date, y = Percent_growth_since_2012), colour = "black",  alpha = .6, lwd = 2)+
+                    ylab("Graduates as a Percent of Their 2012 Value")+
                     theme(text=element_text(size=20))+
                     facet_wrap(~Field.of.study, scales = "free", nrow =length(subfields()) )
             }
