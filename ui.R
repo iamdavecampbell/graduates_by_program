@@ -9,9 +9,9 @@
 
 library(shiny)
 library(tidyverse)
-library(GGally)
-library(ggpubr)
-library(lubridate)
+#library(GGally)
+#library(ggpubr)
+#library(lubridate)
 doctoral_universities      <- read.csv("filecache/doctoral_list.csv")[,2]
 comprehensive_universities <- read.csv("filecache/comprehensive_list.csv")[,2]
 program_codes_top          <- read.csv("filecache/top_program_codes.csv")
@@ -29,7 +29,7 @@ program_codes_top          <- read.csv("filecache/top_program_codes.csv")
 fluidPage(
 
     # Application title
-    titlePanel("Graduates per Program per Year"),
+    titlePanel("Baccalaureate Graduates per Program per Year"),
     # Sidebar with a slider input for number of bins
     sidebarLayout(
         sidebarPanel(

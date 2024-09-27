@@ -9,9 +9,9 @@
 
 library(shiny)
 library(tidyverse)
-library(GGally)
-library(ggpubr)
-library(lubridate)
+#library(GGally)
+#library(ggpubr)
+#library(lubridate)
 
 undergrad_data             <- read_csv("filecache/undergrad_programs_data.csv")
 metadata                   <- read_csv("filecache/undergrad_programs_metadata.csv")
