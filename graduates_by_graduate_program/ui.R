@@ -9,9 +9,9 @@
 
 library(shiny)
 library(tidyverse)
-library(GGally)
-library(ggpubr)
-library(lubridate)
+#library(GGally)
+#library(ggpubr)
+#library(lubridate)
 doctoral_universities      <- read.csv("filecache/doctoral_list.csv")[,2]
 comprehensive_universities <- read.csv("filecache/comprehensive_list.csv")[,2]
 program_codes_top          <- read.csv("filecache/sub_program_codes_grad_by_level.csv")|> select(Field.of.study.parent)|> unique()
@@ -30,7 +30,7 @@ program_codes_top          <- read.csv("filecache/sub_program_codes_grad_by_leve
 fluidPage(
 
     # Application title
-    titlePanel("Graduates per Program per Year"),
+    titlePanel("Masters and Doctoral Graduates per Program per Year"),
     # Sidebar with a slider input for number of bins
     sidebarLayout(
         sidebarPanel(
@@ -50,7 +50,8 @@ fluidPage(
                     ),
                     selected = "Carleton University, Ontario"
     ),
-    
+    radioButtons("relative", "Values to plot",
+                 choices = c("Graduate count" = TRUE, "Percentage of 2012 value" = FALSE), selected = FALSE),
     radioButtons("shownational", "Show National (red line)",
                  choices = c("yes" = TRUE, "no" = FALSE), selected = FALSE),
     radioButtons("onlyblacklineplots", "Show only programs reported by the baseline university",
@@ -66,8 +67,6 @@ fluidPage(
                                  h4("Instructions:"),
                                  p("Subjects are hierarchical, select a top level ",strong("Program of interest"),"to plot all subgroups. Choose a baseline university to highlight using the dropdown menu ", 
                                    strong("Baseline University for Comparison (black line)"),"."),
-                                 radioButtons("relative", "Values to plot",
-                                              choices = c("Graduate count" = TRUE, "Percentage of 2012 value" = FALSE), selected = FALSE),
                                    p("If the ", strong("Values to plot"), " are percentages of the 2012, consider using the ", 
                                    strong("Show National (red line)"),
                                    " to include the change in the national value.  But skip this if showing the counts of graduates since the national count of graduates is always really big compared to the individual universities.",
