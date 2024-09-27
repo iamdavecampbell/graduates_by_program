@@ -9,4 +9,4 @@
 
 - The data prep file manipulates the 6.2GB stat can file and filters it down to ~ 7MB.   
 
-- View a working version of the [baccalaureate]([http://rshiny.math.carleton.ca:3838/users/davecampbell/graduates_by_program/](https://rshiny.math.carleton.ca/users/davecampbell/graduates_by_program/)) and [graduate](https://rshiny.math.carleton.ca/users/davecampbell/graduates_by_graduate_program/) apps.
+- View a working version of the [baccalaureate](https://rshiny.math.carleton.ca/users/davecampbell/graduates_by_program/)) and [graduate](https://rshiny.math.carleton.ca/users/davecampbell/graduates_by_graduate_program/) apps.
