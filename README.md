@@ -2,7 +2,9 @@
 
 - The folder **graduates_by_graduate_program** has a related a shiny app exploring the number of masters and doctoral students.  This app also compares the number of grad to undergrad students.
 
+- The folder **filecache** has the filtered dataset.
 
+ 
 - File **0_data_prep_script.R** handles data download and pre-processing.  Data will be downloaded into (and later sourced from) a directory called **filecache**.  Note that each app needs it's own filecache directory in order to run.  
 
 - Data is publically available via [StatCan](https://www.statcan.gc.ca/en/statistical-programs/instrument/5017_Q1_V8) and updated annually in summer, so use the script to acquire the latest dataset.
